@@ -1,0 +1,29 @@
+server {
+	listen 8080 ssl;
+
+    ssl on;
+    ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+    ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+	root /var/www/meterd;
+
+	index index.html index.php;
+
+	server_name _;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+
+	location ~ \.php$ {
+        fastcgi_intercept_errors on;
+        fastcgi_pass unix:/run/php/meterd-nginx.sock;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+	}
+
+}

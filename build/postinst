@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -e
+
+case "$1" in
+    configure)
+        echo "Setting up Python virtual environment."
+
+        python3 -m venv /usr/local/meterd/venv
+
+        /usr/local/meterd/venv/bin/pip3 install pymodbus --no-index --find-links /usr/local/lib/meterd-install/pip
+
+        if ! getent passwd meterd >/dev/null; then
+            echo "Adding user meterd."
+            adduser --disabled-password --no-create-home --gecos "" meterd  >/dev/null 2>/dev/null
+        else
+            echo "User meterd already exists."
+        fi
+
+        echo "Setting up nginx."
+
+        rm -f /etc/nginx/sites-enabled/default
+
+        systemctl daemon-reload >/dev/null 2>/dev/null
+
+        PHPVER=($(ls /etc/php/ | sort -r -V))
+
+        for phpv in ${PHPVER[@]}; do
+            systemctl disable php${phpv}-fpm.service || :
+            systemctl stop php${phpv}-fpm.service || :
+            rm -f /etc/php/${phpv}/fpm/pool.d/meterd.conf
+        done
+
+        rm -f /etc/php/${PHPVER}/fpm/pool.d/www.conf
+        cp /usr/local/lib/meterd-install/meterd.conf /etc/php/${PHPVER}/fpm/pool.d/meterd.conf
+
+        systemctl enable php${PHPVER}-fpm.service
+        systemctl enable nginx.service
+
+        systemctl start php${PHPVER}-fpm.service
+        systemctl restart nginx.service
+
+        echo "Setting up permissions."
+
+        chown -R :www-data /etc/meterd
+        chmod -R g+w /etc/meterd
+
+        cat << EOF
+------------------------------------------------------------
+Successfully installed meterd.
+
+Before using this program you have to provide configuration.
+See /etc/meterd/ for example config files for both the main
+configuration as well as the device configurations.
+
+A web configuration interface is available on port 8080.
+
+To enable and start the main daemon, execute
+  systemctl enable meterd.service
+  systemctl start meterd.service
+
+To enable the periodic FTP upload, execute
+  systemctl enable meterd-ftpd.timer
+  systemctl start meterd-ftpd.timer
+EOF
+        ;;
+esac
+
+exit 0

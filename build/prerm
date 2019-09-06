@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+case "$1" in
+    remove)
+        echo "Stopping meterd."
+
+        systemctl disable meterd.service
+        systemctl disable meterd-ftpd.timer
+
+        systemctl stop meterd.service
+        systemctl stop meterd-ftpd.timer
+
+        echo "Cleaning up venv."
+        rm -rf /usr/local/meterd/venv
+        ;;
+    *)
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,16 @@
+[Unit]
+Description=Meter data fetcher
+After=network.target
+
+[Service]
+Type=simple
+User=meterd
+Group=meterd
+ExecStart=/usr/local/meterd/meterd.py
+StandardOutput=journal
+Restart=on-success
+SuccessExitStatus=75
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

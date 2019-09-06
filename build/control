@@ -1,0 +1,7 @@
+Package: meterd
+Version: 1.2-5
+Priority: optional
+Maintainer: erdlof@protonmail.com
+Architecture: all
+Depends: python3, python3-venv, nginx, php-fpm, php-yaml, ssl-cert
+Description: Data fetcher for energy meters

@@ -1,0 +1,19 @@
+basic:
+  tpid:
+  protocol: modbus_rtu
+  unit: # The bus unit of the meter
+  query_interval: # In seconds
+  register_offset:
+  device: # The serial(!) device with which the bus is accessed
+  baudrate:
+  parity: # Parity (N/E/O)
+registers:
+  - rstart: # Register start address (register offset is added automatically)
+    rcount: # How many registers
+    rtype: # Register type (float/int/uint)
+    endian: # Endian type (big/little)
+    mpid: # MPID for the xml output
+    remark: # Some description. Doesn't get parsed.
+    factor:
+    offset:
+    round: # How many comma decimals are used. Leave out this option to disable rounding

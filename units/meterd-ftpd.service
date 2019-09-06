@@ -1,0 +1,9 @@
+[Unit]
+Description=Meter data FTP push
+
+[Service]
+Type=oneshot
+User=meterd
+Group=meterd
+ExecStart=/usr/local/meterd/meterd-ftpd.py
+StandardOutput=journal

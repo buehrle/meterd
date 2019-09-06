@@ -1,0 +1,12 @@
+main:
+  xmlpath: # The best idea is to use tmpfs: /mnt/tmpfs/meterd.xml
+  save_interval: # In minutes
+  id:
+  sn:
+  ip:
+ftp: # This section is only read by meterd-ftpd.py and thus semi-optional
+  server:
+  wdir:
+  fname:
+  user:
+  pass:

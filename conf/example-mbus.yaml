@@ -1,0 +1,16 @@
+basic:
+  tpid:
+  protocol: mbus
+  unit: # The bus unit of the meter
+  query_interval: # In seconds
+  device: # The serial(!) device with which the bus is accessed
+  baudrate:
+  parity: # Parity (N/E/O)
+  converter_echo: # (true/false) Some level converters echo all data sent to them on the RS232 line.
+records:
+  - mpid: # MPID for the xml output
+    remark: # Some description. Doesn't get parsed.
+    record_id: # The unique ID of the MBUS data record in the following format: e.g. 06 A8 FF 00
+    factor:
+    offset:
+    round:

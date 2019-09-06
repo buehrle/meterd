@@ -1,0 +1,259 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    height: 100%;
+}
+
+#konzern_logo {
+    width: 200px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.wrapper > .header {
+    height: 60px;
+    display: table;
+    width: 100%;
+    border-bottom-style: groove;
+    border-bottom-width: 3px;
+}
+
+.wrapper > .header > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.wrapper > .header > .title > h1 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-size: 25px;
+}
+
+.wrapper > .header > .title {
+    padding-left: 100px;
+    text-align: center;
+}
+
+.wrapper > .header > .logo {
+    width: 1px;
+}
+
+.wrapper > .header > .isalive {
+    text-align: right;
+    width: 170px;
+    white-space: nowrap;
+    padding-right: 30px;
+}
+
+.wrapper > .header > .isalive > p {
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.wrapper > .header > .isalive > a {
+    font-size: 12px;
+}
+
+.wrapper > .content {
+    width: 100%;
+    height: calc(100% - 63px);
+    min-height: 300px;
+    min-width: 1000px;
+}
+
+.wrapper > .content > .left {
+    border-right-style: groove;
+    overflow-y: scroll;
+    height: 100%;
+    float: left;
+}
+
+.wrapper > .content > .left > div {
+    white-space: nowrap;
+    padding: 15px;
+    margin: 5px;
+}
+
+.wrapper > .content > .left > .mainsettings {
+    border-bottom-style: solid;
+    border-bottom-color: #CCCCCC;
+    border-bottom-width: 2px;
+}
+
+.wrapper > .content > .right {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: calc(100% - 20px);
+    overflow-y: auto;
+    display: flex;
+}
+
+.wrapper > .content > .right > form {
+    width: 100%;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin: 0px 0px 10px 0px;
+    font-size: 20px;
+}
+
+ul {
+    padding-inline-start: 20px;
+    margin: 0px 0px 10px 0px;
+    padding-left: 20px;
+}
+
+.green {
+    color: #41943a;
+
+}
+
+.red {
+    color: #802f2f;
+}
+
+.hidden {
+    visibility: hidden;
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: none !important;
+}
+
+.singlesetting {
+    margin-bottom: 5px;
+}
+
+.dev-mainsettings {
+    display: flex;
+}
+
+.rightleft {
+    float: left;
+}
+
+.rightright {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.datarecords, .registers {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: #CCCCCC;
+    width: 100%;
+    display: inline-block;
+}
+
+.datarecords > h2, .registers > h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+table, tr, td, th {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #414141;
+    white-space: nowrap;
+}
+
+input.del, input.add {
+    width: 18px;
+    vertical-align: middle;
+    color: transparent;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    outline: inherit;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+input.del {
+    background:url(/img/del.svg) no-repeat;
+}
+
+input.add {
+    background:url(/img/add.svg) no-repeat;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.remarkcontainer {
+    padding-right: 5px;
+}
+
+input.notsowide {
+    width: 60px;
+}
+
+.submit-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#submit-delete {
+    float: right;
+    color: #802f2f;
+}
+
+input.littlewider {
+    width: 300px;
+}
+
+.submit-leftmargin {
+    margin-left: 20px;
+}
+
+p.error {
+    margin: 0px;
+    color: #e24d4d;
+    font-weight: bold;
+}
+
+h2.margintop {
+    margin-top: 30px !important;
+}
+
+div.margintop {
+    margin-top: 15px !important;
+}
+
+p.logentry {
+    margin-top: 0px;
+    font-family: monospace;
+    display: block;
+}
+
+div.values {
+    margin-top: 20px;
+}
+
+div.values > table > tbody > tr > td {
+    font-family: monospace;
+    font-size: 14px;
+}

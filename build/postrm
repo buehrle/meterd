@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+case "$1" in
+    remove)
+        systemctl daemon-reload >/dev/null 2>/dev/null
+
+        echo "Restarting nginx."
+
+        systemctl restart nginx.service
+        ;;
+    *)
+        ;;
+esac
+
+exit 0

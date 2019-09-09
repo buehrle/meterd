@@ -5,7 +5,7 @@ Daemon for querying power meters through MBus, RTU-Modbus and TCP-Modbus
 All queried values are written to a XML file periodically. This XML file is then uploaded to a FTP server of your choice every 6 hours (or less, if you want)  
 You can add devices easily by adding YAML configuration files into the /etc/meterd/conf.d directory. In this config files you can specify device parameters, for example which serial device to use, as well as all Modbus registers/MBus data records to query. This configuration is also accessible through the web interface.
 
-![Screenshot of a mbus dev config](https://raw.githubusercontent.com/erdlof/meterd/master/screen1.png)
+![Screenshot of a mbus dev config](https://raw.githubusercontent.com/buehrle/meterd/master/screen1.png)
 
 ## Copyright notices
 Meterd (c) 2019 Florian Bührle
